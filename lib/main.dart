@@ -43,6 +43,8 @@ class MasterPage extends StatelessWidget {
     InnerView = InnterRoutes[Get.parameters[
         'page_name']]!; // Já aqui eu permitir que a variável fosse iniciada como null, "pelo menos é o que eu acho que fiz!"
   }
+  int _selectedDestination = 0;
+
   @override
   Widget build(BuildContext context) {
     return Row(
@@ -96,6 +98,8 @@ class MasterPage extends StatelessWidget {
                   textColor: Colors.white,
                   leading: const Icon(FontAwesomeIcons.solidCircleUser),
                   title: const Text('Meu Perfil'),
+                  selected: _selectedDestination == 0,
+
                   onTap: () {
                     Get.toNamed('/home');
                   },
@@ -105,6 +109,8 @@ class MasterPage extends StatelessWidget {
                   textColor: Colors.white,
                   leading: const Icon(FontAwesomeIcons.sitemap),
                   title: const Text('Organograma'),
+                  selected: _selectedDestination == 1,
+
                   onTap: () {
                     Get.toNamed('/dashboard');
                   },
@@ -194,5 +200,7 @@ class MasterPage extends StatelessWidget {
             flex: 6, child: Container(color: Colors.white, child: InnerView)),
       ],
     );
+    
   }
 }
+

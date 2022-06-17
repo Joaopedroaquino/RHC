@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:rhcweb/shared/themes/app_text_styles.dart';
 
 class EditPage extends StatefulWidget {
   const EditPage({Key? key}) : super(key: key);
@@ -22,69 +23,181 @@ class _EditPageState extends State<EditPage> {
   TextEditingController bairro = TextEditingController();
   TextEditingController logradouro = TextEditingController();
 
-
-
-
-
-
-
   List<Step> stepList() => [
         Step(
           state: _activeStepIndex <= 0 ? StepState.indexed : StepState.editing,
           isActive: _activeStepIndex >= 0,
           title: const Text('Dados do colaborador'),
           content: Container(
-            child: Column(
-              children: [
-                TextField(
-                  controller: name,
-                  decoration: const InputDecoration(
-                    labelText: 'Nome completo',
-                  ),
+            child: Card(
+              child: Padding(
+                padding: const EdgeInsets.all(12.0),
+                child: Column(
+                  children: [
+                    Text(
+                      'Dados pessoais',
+                      style: TextStyles.input,
+                    ),
+                    SizedBox(
+                      width: 5,
+                    ),
+                    Row(
+                      children: [
+                        Expanded(
+                          child: ListTile(
+                            title: Text('Nome completo*'),
+                            subtitle: TextFormField(
+                              
+                            ),
+                          ),
+                        ),
+                        SizedBox(
+                          width: 5,
+                        ),
+                        Expanded(
+                          child: ListTile(
+                            title: Text('Nome apresentacao*'),
+                            subtitle: TextFormField(
+                             
+                            ),
+                          ),
+                        ),
+                        Expanded(
+                          child: ListTile(
+                            title: Text('CPF*'),
+                            subtitle: TextFormField(
+                             
+                            ),
+                          ),
+                        ),
+                        Expanded(
+                          child: ListTile(
+                            title: Text('Email pessoal*'),
+                            subtitle: TextFormField(
+                             
+                            ),
+                          ),
+                        ),
+                      ],
+                    ),
+                    Row(
+                      children: [
+                        Expanded(
+                          child: ListTile(
+                            title: Text('Quantidade de filhos*'),
+                            subtitle: TextFormField(
+                              
+                            ),
+                          ),
+                        ),
+                        
+                        
+                        
+                      ],
+                    ),
+                      Text(
+                      'Dados empresariais',
+                      style: TextStyles.input,
+                    ),
+                    Row(
+                      children: [
+                        Expanded(
+                          child: ListTile(
+                            title: Text('Email grupo brisanet*'),
+                            subtitle: TextFormField(
+                              
+                            ),
+                          ),
+                        ),
+                         Expanded(
+                          child: ListTile(
+                            title: Text('Email time brisa*'),
+                            subtitle: TextFormField(
+                             
+                            ),
+                          ),
+                        ),
+                        Expanded(
+                          child: ListTile(
+                            title: Text('Empresa*'),
+                            subtitle: TextFormField(
+                             
+                            ),
+                          ),
+                        ),
+                       
+                        
+                        
+                        
+                      ],
+                    ),
+                    Row(
+                      children: [
+                        Expanded(
+                          child: ListTile(
+                            title: Text('Setor*'),
+                            subtitle: TextFormField(
+                              
+                            ),
+                          ),
+                        ),
+                         Expanded(
+                          child: ListTile(
+                            title: Text('Funcao informada*'),
+                            subtitle: TextFormField(
+                              
+                            ),
+                          ),
+                        ),
+                        Expanded(
+                          child: ListTile(
+                            title: Text('Superior imediato*'),
+                            subtitle: TextFormField(
+                             
+                            ),
+                          ),
+                        ),
+                       
+                        
+                        
+                        
+                      ],
+                    ),
+                    Row(
+                      children: [
+                        Expanded(
+                          child: ListTile(
+                            title: Text('Tipo de vinculo com a empresa*'),
+                            subtitle: TextFormField(
+                             
+                            ),
+                          ),
+                        ),
+                        
+                        
+                        
+                      ],
+                    ),
+                    Row(
+                      
+                      children: [
+                        Expanded(
+                          child: ListTile(
+                            title: Text('Qual email sera utilizado no login*'),
+                            subtitle: TextFormField(
+                            
+                             
+                            ),
+                          ),
+                        ),
+                        
+                        
+                        
+                      ],
+                    ),
+                  ],
                 ),
-                const SizedBox(
-                  height: 8,
-                ),
-                TextField(
-                  controller: nomeapresentacao,
-                  decoration: const InputDecoration(
-                    labelText: 'Nome apresentacao',
-                  ),
-                ),
-                const SizedBox(
-                  height: 8,
-                ),
-                TextField(
-                  controller: cpf,
-                  obscureText: false,
-                  decoration: const InputDecoration(
-                    labelText: 'CPF',
-                  ),
-                ),
-                TextField(
-                  controller: emailpessoal,
-                  decoration: const InputDecoration(
-                    labelText: 'Email pessoal',
-                  ),
-                ),
-                TextField(
-                  controller: filhos,
-                  decoration: const InputDecoration(
-                    labelText: 'Quantidade de filhos',
-                  ),
-                ),
-                const Divider(
-                  height: 1,
-                  thickness: 1,
-                ),
-                const Text('Dados empresariais'),
-                TextField(
-                  controller: email,
-                  decoration: const InputDecoration(
-                    labelText: 'Email grupo brisanet',
-                  ),
-                ),
-              ],
+              ),
             ),
           ),
         ),
@@ -101,9 +214,7 @@ class _EditPageState extends State<EditPage> {
                   ),
                   TextField(
                     controller: escolaridade,
-                    decoration: const InputDecoration(
-                      labelText: 'Nivel de escolaridade',
-                    ),
+                   
                   ),
                   const SizedBox(
                     height: 8,
@@ -198,7 +309,7 @@ class _EditPageState extends State<EditPage> {
                   const SizedBox(
                     height: 8,
                   ),
-                 TextField(
+                  TextField(
                     controller: cidade,
                     decoration: const InputDecoration(
                       labelText: 'Cidade residencial',
@@ -290,7 +401,7 @@ class _EditPageState extends State<EditPage> {
                     )),
               ),
               const SizedBox(
-                width: 900,
+                width: 600,
               ),
               OutlinedButton(
                 onPressed: controls.onStepCancel,
